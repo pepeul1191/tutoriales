@@ -2,6 +2,7 @@
 
 ### Mojo Micro Web Framework
 
+    $ sudo apt install cpanminus
     $ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
     $ sudo cpanm Mojolicious::Plugin::SecureCORS
     $ sudo apt install libmojolicious-perl
