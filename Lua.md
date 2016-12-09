@@ -46,7 +46,13 @@ Instalar Sailor
     $ sailor create "my app"
     $ cd my_app/
     $ lua start-server.lua
+    
+Añadir Openresty a Sailor, para esto dentro del proyecto de sailor:
 
+    $ nginx -p `pwd`/ -c conf/nginx.conf 
+    $ nginx -p `pwd`/ -c conf/nginx.conf  -s reload
+    
+Adems hay que crear una carpeta llamada logs y crear dos archivos, "error.log" y "nginx.pid"
 ---
 
 #### Fuente
