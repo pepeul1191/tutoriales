@@ -63,3 +63,4 @@ Adems hay que crear una carpeta llamada logs y crear dos archivos, "error.log" y
 + http://piratery.net/dump/
 + http://sailorproject.org/
 + https://github.com/sailorproject/sailor/issues/144#issuecomment-263696439
++ https://github.com/sailorproject/sailor/blob/master/docs/INSTALL_MAC.md#alternative-setup-using-nginx-and-openresty
