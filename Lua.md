@@ -10,6 +10,7 @@ Instalar esta versión ya que es compatible con lapis.
 
 Instalar luarocks
 
+    $ sudo apt-get install lua5.1
     $ sudo apt-get install luarocks
 
 Descarga openresty
@@ -35,12 +36,24 @@ Instalar y usar lapis
     sudo luarocks install prtr-dump
     lapis new
     lapis server
+    
+Instalar Sailor
+
+    $ sudo luarocks install xavante
+    $ git clone https://github.com/sailorproject/sailor
+    $ cd sailor
+    $ sudo luarocks make rockspecs/sailor-current-1.rockspec
+    $ sailor create "my app"
+    $ cd my_app/
+    $ lua start-server.lua
 
 ---
 
 #### Fuente
 
-http://openresty.org/en/installation.html
-http://leafo.net/lapis/reference/getting_started.html
-http://leafo.net/lapis/reference/configuration.html
-http://piratery.net/dump/
++ http://openresty.org/en/installation.html
++ http://leafo.net/lapis/reference/getting_started.html
++ http://leafo.net/lapis/reference/configuration.html
++ http://piratery.net/dump/
++ http://sailorproject.org/
++ https://github.com/sailorproject/sailor/issues/144#issuecomment-263696439
