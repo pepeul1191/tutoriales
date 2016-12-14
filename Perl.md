@@ -16,6 +16,10 @@
     $ sudo cpanm JSON
     $ sudo cpanm JSON::XS
     
+### Instalar Crypt::MCrypt para Perl
+ 
+    $ sudo cpanm Crypt::MCrypt 
+    
 ### Instalar Try Catch Standar Error para Perl
 
     $ sudo cpanm Try::Tiny
@@ -38,6 +42,5 @@ Para imprimir variables:
 + http://stackoverflow.com/questions/10342875/how-to-properly-use-the-try-catch-in-perl-that-error-pm-provides
 + http://search.cpan.org/~ether/Try-Tiny-0.27/lib/Try/Tiny.pm
 + http://stackoverflow.com/questions/20869123/json-decoding-in-perl
-
-
++ http://search.cpan.org/~shantanu/Crypt-MCrypt-0.07/lib/Crypt/MCrypt.pm
 
