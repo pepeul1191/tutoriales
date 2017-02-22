@@ -19,6 +19,7 @@ Descarga openresty
 
 Instalar openresty
 
+    $ sudo apt-get install nginx libpcre3 libpcre3-dev
     $ tar xvf ngx_openresty-VERSION.tar.gz
     $ cd ngx_openresty-VERSION/
     $ ./configure
@@ -64,3 +65,4 @@ Adems hay que crear una carpeta llamada logs y crear dos archivos, "error.log" y
 + http://sailorproject.org/
 + https://github.com/sailorproject/sailor/issues/144#issuecomment-263696439
 + https://github.com/sailorproject/sailor/blob/master/docs/INSTALL_MAC.md#alternative-setup-using-nginx-and-openresty
++ https://www.cyberciti.biz/faq/debian-ubuntu-linux-install-libpcre3-dev/
