@@ -54,6 +54,19 @@ Añadir Openresty a Sailor, para esto dentro del proyecto de sailor:
     $ nginx -p `pwd`/ -c conf/nginx.conf  -s reload
     
 Adems hay que crear una carpeta llamada logs y crear dos archivos, "error.log" y "nginx.pid"
+
+### LuaMongo
+
+Instalar el librería de c lua para mongodb
+
+    $ wget https://github.com/mongodb/mongo-c-driver/releases/download/1.2.0/mongo-c-driver-1.2.0.tar.gz
+    $ tar -xzf mongo-c-driver-1.2.0.tar.gz
+    $ cd mongo-c-driver-1.2.0/
+    $ ./configure --prefix=/usr --libdir=/usr/lib64
+    $ make
+    $ sudo make install
+    $ sudo luarocks install mongorover
+
 ---
 
 #### Fuente
@@ -66,3 +79,5 @@ Adems hay que crear una carpeta llamada logs y crear dos archivos, "error.log" y
 + https://github.com/sailorproject/sailor/issues/144#issuecomment-263696439
 + https://github.com/sailorproject/sailor/blob/master/docs/INSTALL_MAC.md#alternative-setup-using-nginx-and-openresty
 + https://www.cyberciti.biz/faq/debian-ubuntu-linux-install-libpcre3-dev/
++ http://mongoc.org/libmongoc/1.2.0/installing.html
++ https://github.com/mongodb-labs/mongorover
