@@ -1,9 +1,37 @@
-pluma ~/.bashrc
-export PATH=${PATH}:/home/pepe/Android/Sdk/tools
-export PATH=${PATH}:/home/pepe/Android/Sdkplatform-tools
+# INSTALACIÓN Android Studio
 
-android avd
-android sdk
+#### 1) Descargar android-studio-linux.zip de fuente 1.
 
+#### 2) Instalar los siguientes paquetes
 
-http://askubuntu.com/questions/634082/how-to-install-android-studio-on-ubuntu
+    $ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0:i386 lib32stdc++6
+
+#### 3) Descomprimir el archivo android-studio-linux.zip y moverlo a la ruta /usr/local
+ 
+    $ sudo mv android-studio /usr/local
+
+#### 4) Instlar Android Studio 
+
+/usr/local/android-studio/bin$ ./studio.sh 
+
+#### 5) Añadir las varialbles de entrono 
+
+    $ pluma ~/.bashrc
+    
+    export PATH=${PATH}:/home/pepe/Android/Sdk/tools
+    export PATH=${PATH}:/home/pepe/Android/Sdk/platform-tools
+    
+    $ . ~/.bashrc
+
+Instrucciones adicionales:
+    
+    $ android avd
+    $ android sdk
+
+---
+
+Fuentes:
+
++ http://askubuntu.com/questions/634082/how-to-install-android-studio-on-ubuntu
++ https://developer.android.com/studio/index.html?hl=es-419
++ https://developer.android.com/studio/install.html?hl=es-419
