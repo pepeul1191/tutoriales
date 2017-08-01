@@ -66,6 +66,18 @@ Instalar el librería de c lua para mongodb
     $ make
     $ sudo make install
     $ sudo luarocks install mongorover
+    
+### Lua Mac OSX
+
+Instalar Lua5.1 y LuaRocks desde el tar.gz y luego instalar los siguientes aplicaciones desde los gestores de brew y rudix:
+
+    $ brew install nginx
+    $ brew install homebrew/nginx/openresty
+    $ sudo rudix install libresssl
+
+Añadir al bash:
+
+    > export PATH=/usr/local/Cellar/openresty/1.11.2.3/bin:/usr/local/Cellar/openresty/1.11.2.3/nginx/sbin:$PATH
 
 ---
 
