@@ -18,6 +18,10 @@ Entrar por un cliente MySQL al servidor y añadir el host, con su respetivo usua
     $ mysql -u root -p
     > CREATE USER 'username'@'192.168.1.100' IDENTIFIED BY 'password';
     > GRANT ALL PRIVILEGES ON * . * TO 'username'@'192.168.1.100';
+
+Agregar a las reglas del firewall que permita conecciones del host remoto por el puerto 3306
+
+    $ sudo ufw allow 3306
     
 #### MongoDB
     
@@ -41,3 +45,4 @@ Agregar a las reglas del firewall que permita conecciones del host remoto por el
 + https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
 + https://www.mkyong.com/mongodb/mongodb-allow-remote-access/
 + https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server
++ https://stackoverflow.com/questions/15663001/remote-connections-mysql-ubuntu
