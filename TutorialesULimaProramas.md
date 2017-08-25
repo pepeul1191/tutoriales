@@ -116,45 +116,9 @@ Para poder instalar un cliente gráfico para gestionar esta base de datos, podem
     
 ### MongoDB
 
-MongoDB es un motor de base de datos no relacional orientada a documentos JSON. Para poder instalar este programa debemos incluir el repositorio de MongoDB en la lista de repositorios de Ubuntu.
-
-    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-    $ echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-
-Actualizamos la lista de paquetes de los repositorios:
-
-    $ sudo apt-get update
-    
-Luego instalamos MongoDB:
-
-    $ sudo apt-get install mongodb-org
-    
-Si queremos iniciar MongoDB como servicio al iniciar sesión, debemos crear la siguiente entrada:
-
-    $ sudo nano /etc/systemd/system/mongodb.service
-    
-Esto nos abrirá el el archivo mongodb.service en el editor de texto 'nano' y pegamos el siguiente código:
-    
-```
-[Unit]
-Description=High-performance, schema-free document-oriented database
-After=network.target
-
-[Service]
-User=mongodb
-ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
-
-[Install]
-WantedBy=multi-user.target
-```
-    
-Después habilitamos el servicio creado:
-
-    $ sudo systemctl enable mongodb
-
-Y para arrancar el servicio:
-
-    $ sudo systemctl start mongodb
+MongoDB es un motor de base de datos no relacional orientada a documentos JSON. Para poder instalar este programa debemos incluir el repositorio de MongoDB en la lista de repositorios de Ubuntu. Si estamos en Ubuntu 17.04, se usaría el siguiente código:
+	
+    $ sudo apt install mongodb-clients mongodb-server mongodb
     
 Si deseamos ingresar al cliente MongoDB mediante consola, podemos usar el siguiente comando:
 
@@ -189,6 +153,7 @@ Para conectarse a Heroku de manera remota, necesitamos instalar un cliente, para
 + http://ideafalaz.blogspot.pe/2016/04/instalar-postgresql-y-pgadmin-en-linux.html
 + https://www.mongodb.com/es
 + https://www.digitalocean.com/community/tutorials/como-instalar-mongodb-en-ubuntu-16-04-es
++ https://askubuntu.com/questions/912406/mongo-on-ubuntu-17-04
 + https://robomongo.org/download
 + https://devcenter.heroku.com/articles/heroku-cli#debian-ubuntu
 
