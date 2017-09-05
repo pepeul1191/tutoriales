@@ -4,8 +4,8 @@
 
 Definir de manera global al sistema un usuario y correo.
 
-    $ git config --global user.name "Pepe Valdivia"
-    $ git config --global user.email "<jvaldivia@softweb.pe>"
+    $ git config --global user.name "Nombre Apellido"
+    $ git config --global user.email "<tucorreo@correo.pe>"
     
 Definir el editor de texto por default con el que se editarán los commit
 
@@ -26,6 +26,10 @@ Otra alternativa es clonando un repositorio indicando el lugar donde este reposi
 Es una área temporal donde se va almacenar los cambio que tenemos de manera local antes de enviarlo en un commit, esto responderá a los archivos que indiquemos que se hayan agreado primero.
 
     $ git add {archivo}
+    
+Si queremos añadir todos los cambios sería usando una variante del código anterior:
+
+    $ git add .
 
 Si queremos ver el estado de los archivos previos al commit:
 
@@ -55,7 +59,7 @@ Ahora, en función a estas consideraciones, vamos a elaborar el contido de commi
 Si deseamos quitar un archivo de nuestro repositorio para el siguiente commit, usaremos el siguiente comando:
 
     $ git rm {nombre del archivo}
-
+    
 Para verificar es estado de los archivos a eliminar en el siguiente commit, usamos el siguiente comando:
 
     $ git status
@@ -63,6 +67,10 @@ Para verificar es estado de los archivos a eliminar en el siguiente commit, usam
 Para en enviar el commit usaremos el siguiente comando, no olvidando ingresar el mensaje correspondiente al commit.
 
     $ git commit
+
+Si desea quitar todos los archivos añadidos mediante add, sería el siguiente comando:
+
+    $ git reset
 
 #### Moviendo Archivos
 
@@ -125,20 +133,26 @@ Para borrar un rama usamos el siguiente comando:
 
     $ git branch -d {nombre de la rama}
 
-#### Fucionando Ramas
+#### Añadir Remote
 
-# 17' 44''
+Ver o verificar si tenemos enlazado nuestro repositorio a un repositorio remoto:
 
-git push  <REMOTENAME> <BRANCHNAME> 
+    $ git remote -v
+    
+Si no tenemos un destino enlazado, podemos asociar uno usando el siguiente comando: 
 
-    A remote name, for example, origin
-    A branch name, for example, master
+    $ git remote add origin {url de repositorio git}
+    
+Si el repositorio ya cuenta con un destino enlazado, podemos cambiar el destino:
 
+    $ git remote set-url origin {nueva url}
 
 ---
 
-#### Fuente : 
+#### Fuentes : 
  
-Título : Tutorial de Git en media hora <br>
-Autor (Youtube) : makigas <br>
-Enlace : https://www.youtube.com/watch?v=QGKTdL7GG24 
++ Título : Tutorial de Git en media hora <br>
+    Autor (Youtube) : makigas <br>
+    Enlace : https://www.youtube.com/watch?v=QGKTdL7GG24 
+
++ https://stackoverflow.com/questions/2432764/change-the-uri-url-for-a-remote-git-repository
