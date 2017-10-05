@@ -17,6 +17,18 @@ Autocompletar de Python
 Bootstrap
 
     $ git clone https://github.com/JasonMortonNZ/bs3-sublime-plugin.git
+    
+Configuración
+
+    {
+        "color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
+        "font_face": "Ubuntu",
+        "font_size": 12,
+        "tab_size": 1,
+        "theme": "Default.sublime-theme",
+        "word_wrap": "true"
+    }
+
 
 #### Fuente
 
