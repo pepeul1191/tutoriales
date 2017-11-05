@@ -26,6 +26,10 @@ Git
 
     $ git clone https://github.com/divmain/GitSavvy.git
     
+Sintaxis Markdonw
+
+    $ git clone https://github.com/sekogan/MarkdownLight.git
+    
 Configuración
 
     {
@@ -46,6 +50,7 @@ Configuración
 + https://github.com/JasonMortonNZ/bs3-sublime-plugin
 + https://github.com/divmain/GitSavvy
 + https://github.com/Wramberg/TerminalView
++ https://github.com/sekogan/MarkdownLight
 
 FALTA
 https://github.com/revolunet/sublimetext-markdown-preview
