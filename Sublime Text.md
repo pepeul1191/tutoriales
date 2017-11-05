@@ -18,6 +18,14 @@ Bootstrap
 
     $ git clone https://github.com/JasonMortonNZ/bs3-sublime-plugin.git
     
+Terminal
+
+    $ git clone https://github.com/Wramberg/TerminalView.git $HOME/.config/sublime-text-3/Packages/TerminalView
+    
+Git
+
+    $ git clone https://github.com/divmain/GitSavvy.git
+    
 Configuración
 
     {
@@ -36,6 +44,8 @@ Configuración
 + https://github.com/leafo/moonscript-tmbundle
 + https://github.com/srusskih/SublimeJEDI
 + https://github.com/JasonMortonNZ/bs3-sublime-plugin
++ https://github.com/divmain/GitSavvy
++ https://github.com/Wramberg/TerminalView
 
 FALTA
 https://github.com/revolunet/sublimetext-markdown-preview
