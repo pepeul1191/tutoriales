@@ -30,6 +30,27 @@
     $ gradle wrapper   // this installs the needed 'stuff'
 
 
+## Segunda forma
+
+    $ sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils ia32-libs-multiarch 
+    $ sudo apt-get install cpu-checker
+    $ egrep -c '(vmx|svm)' /proc/cpuinfo
+    12
+    $ kvm-ok
+    INFO: /dev/kvm exists
+    KVM acceleration can be used
+    $ sudo add-apt-repository ppa:maarten-fonville/android-studio
+    $ sudo apt update
+    $ sudo apt install android-studio android-tools-adb adb
+    
+Setear $ANDROID_HOME
+
+    $ pluma ~/.bashrc
+    
+    export ANDROID_HOME=$HOME/Android/Sdk
+    export PATH=$PATH:$ANDROID_HOME/tools
+
+    $ . ~/.bashrc
 ---
 
 Fuentes:
@@ -38,3 +59,5 @@ Fuentes:
 + https://developer.android.com/studio/index.html?hl=es-419
 + https://developer.android.com/studio/install.html?hl=es-419
 + https://forum.ionicframework.com/t/could-not-find-gradle-wrapper-within-android-sdk-might-need-to-update-your-android-sdk/84453/12
++ https://www.linuxbabe.com/ubuntu/install-android-studio-ubuntu-16-04
++ https://developer.android.com/studio/run/emulator-acceleration.html?utm_source=android-studio#vm-linux
