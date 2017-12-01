@@ -35,3 +35,4 @@ Fuentes
     
 + https://askubuntu.com/questions/76065/how-do-i-configure-two-network-adapters-in-ubuntu-server
 + https://askubuntu.com/questions/425859/how-to-list-installed-network-cards-in-ubuntu-using-terminal
++ https://www.cyberciti.biz/faq/setting-up-an-network-interfaces-file/
