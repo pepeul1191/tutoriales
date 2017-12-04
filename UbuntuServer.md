@@ -29,6 +29,10 @@ Mostar las interfaces de red disponibles:
     
     $ ip link show
     
+Instalar entorno grafico MATE:
+
+    $ sudo apt-get install mate-desktop-environment-core pluma firefox tomboy xinit
+    
 --- 
 
 Fuentes
@@ -36,3 +40,4 @@ Fuentes
 + https://askubuntu.com/questions/76065/how-do-i-configure-two-network-adapters-in-ubuntu-server
 + https://askubuntu.com/questions/425859/how-to-list-installed-network-cards-in-ubuntu-using-terminal
 + https://www.cyberciti.biz/faq/setting-up-an-network-interfaces-file/
++ https://ubuntuforums.org/showthread.php?t=2287308
