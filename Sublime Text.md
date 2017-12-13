@@ -32,15 +32,68 @@ Sintaxis Markdonw
     
 Configuración
 
+Prefrence settings
+
     {
-        "color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
-        "font_face": "Ubuntu",
-        "font_size": 12,
-        "tab_size": 1,
-        "theme": "Default.sublime-theme",
+        "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+        "file_exclude_patterns":
+        [
+            "*.pyc",
+            "*.pyo",
+            "*.exe",
+            "*.dll",
+            "*.obj",
+            "*.o",
+            "*.a",
+            "*.lib",
+            "*.so",
+            "*.dylib",
+            "*.ncb",
+            "*.sdf",
+            "*.suo",
+            "*.pdb",
+            "*.idb",
+            ".DS_Store",
+            "*.class",
+            "*.psd",
+            "*.sublime-workspace"
+        ],
+        "font_face": "Liberation Mono",
+        "font_size": 7,
+        "tab_size": 2,
         "word_wrap": "true"
     }
 
+Default.sublime-theme
+
+    [ 
+        { 
+            "class": "sidebar_label",
+            "color": [0, 0, 0],
+            "font.size": 11
+        }, 
+        {
+            "class": "sidebar_tree",
+            "row_padding": [7, 1],
+            "indent": 11,
+            "indent_offset": 13,
+            "indent_top_level": false,
+            "layer0.tint": [230, 230, 230],
+            "layer0.opacity": 1.0,
+            "dark_content": false
+        }, 
+        {
+            // Tabs
+            "class": "tabset_control",
+            "tab_height": 26,
+            "font.size":10
+        },
+        {
+        "class": "tab_label",
+        "font.size": 10, 
+        "font.face": "Ubuntu"
+        }
+    ]
 
 #### Fuente
 
