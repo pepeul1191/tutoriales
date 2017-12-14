@@ -1,69 +1,61 @@
 # VirtualBox
 
-Editar el archivo '/etc/apt/sources.list' y añadir la siguiente linea:
+Instalar VirtualBox y Extension Pack
 
-    deb http://download.virtualbox.org/virtualbox/debian xenial contrib
+    $ sudo apt-get install dkms build-essential linux-headers-`uname -r`
+    $ wget http://download.virtualbox.org/virtualbox/5.1.12/virtualbox-5.1_5.1.12-112440~Ubuntu~xenial_amd64.deb
+    $ sudo dpkg -i virtualbox-5.1_5.1.12-112440~Ubuntu~xenial_amd64.deb
+    $ sudo apt-get install -f
+    $ wget http://download.virtualbox.org/virtualbox/5.1.12/Oracle_VM_VirtualBox_Extension_Pack-5.1.12.vbox-extpack
+    $ sudo VBoxManage extpack install ./Oracle_VM_VirtualBox_Extension_Pack-5.1.12.vbox-extpack
     
-Despues ejecutamos:
+Añadir el usuario vbox.
 
-    $ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - && sudo apt-get update && sudo apt-get install linux-headers-$(uname -r) build-essential virtualbox-5.1 dkms
+    $ sudo groupadd vboxusers
+    $ sudo useradd -g vboxusers vbox 
     
-Luego ejecutamos Oracle VM VirtualBox Extension Pack:
+Editar el archivo '/etc/default/virtualbox '
 
-    $ cd /tmp
-    $ wget http://download.virtualbox.org/virtualbox/5.1.26/Oracle_VM_VirtualBox_Extension_Pack-5.1.26-117224.vbox-extpack
-    $ sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-5.1.26-117224.vbox-extpack
+    VBOXWEB_USER="vbox"
+    VBOXWEB_TIMEOUT=0
+    VBOXWEB_LOGFILE="/var/log/vboxwebservice.log"
+    VBOXWEB_HOST="<<ip del servidor>>"
+
+Crear el archivo de logs:
+
+    $ sudo touch /var/log/vboxwebservice.log
+    $ sudo chown vbox:vboxusers /var/log/vboxwebservice.log 
     
-Añadir el usuario que utilizará virtualbox.
+Crear el directorio del usuario vbox
 
-    $ sudo adduser <<usuario>> vboxusers
-
-Editar el archivo '/etc/default/virtualbox' y añadir la siguiente linea:
-
-    VBOXWEB_USER=<<usuario>>
-
-Reiniciar el servicio de VirtualBox:
-
-    $ systemctl enable vboxweb-service
-    $ systemctl start vboxweb-service
-
-Instalar PHP y Apache2:
-
-    $ sudo apt-get -y install apache2 libapache2-mod-php7.0 libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap libapr1 php7.0-common php7.0-mysql php7.0-soap php-pear wget unzip
+    $ sudo mkdir /home/vbox/.VirtualBox
+    $ sudo chown vbox:vboxusers /home/vbox/.VirtualBox 
     
-Reiniciar el servidor Apache2:
+Crear contraseña al usuario vbox
 
-    $ sudo systemctl restart apache2.service
+    $ sudo passwd vbox
     
-Instalar Phpvirtualbox:
+Arrancar el servicio de VirtualBox
 
-    $ cd /tmp
-    $ wget https://sourceforge.net/projects/phpvirtualbox/files/phpvirtualbox-5.0-5.zip/download
-    $ mv download vbox.zip
-    $ unzip vbox.zip
-    $ mv phpvirtualbox-5.0-5 phpvbox
-    $ sudo mv phpvbox /var/www/html
-    $ sudo chown -R www-data:www-data /var/www/html/phpvbox
-    $ cd /var/www/html/phpvbox
-    $ sudo cp config.php-example config.php
-    $ sudo nano config.php
+    $ sudo service vboxweb-service start 
     
-El codigo anterior abrira el editor nano. Luego hay que ingrear el siguiente codigo:
+Verificar el estado del servicio
 
-    [...]
-    /* Username / Password for system user that runs VirtualBox */
-    var $username = 'vbox';
-    var $password = 'secret';
-    [...]
+    $ sudo service vboxweb-service status 
+    $ sudo netstat -nap | grep vboxwebsrv 
     
-Luego reiniciamos la maquina host:
+### Instalar RemoteBox
 
-    $ sudo reboot
+    $ wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+    $ sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
+    $ sudo apt-get update
+    $ sudo apt-get install remotebox
 
-
-VBoxManage setproperty websrvauthlibrary null
 --- 
 
 Fuentes
 
 + https://www.pacorabadan.com/2017/08/virtualbox-server-ubuntu-16-04-virtualbox-headless-phpvirtualbox/
++ http://xmodulo.com/how-to-manage-virtualbox-vms-on-remote-headless-server.html
++ https://askubuntu.com/questions/777308/virtualbox-problem-kernel-module-is-not-loaded
++ http://sysads.co.uk/2016/06/06/how-to-install-remotebox-2-1-tool-on-ubuntu-16-04/
