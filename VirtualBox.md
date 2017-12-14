@@ -44,6 +44,10 @@ Verificar el estado del servicio
     $ sudo service vboxweb-service status 
     $ sudo netstat -nap | grep vboxwebsrv 
     
+Arrancar el servicio de acceso via remoto
+
+    $ vboxwebsrv
+    
 ### Instalar RemoteBox
 
     $ wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
