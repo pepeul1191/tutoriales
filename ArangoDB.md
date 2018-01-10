@@ -12,16 +12,18 @@ Revisar el status del servicio instalado:
 
     $ sudo systemctl status arangodb
 
-Acceder a ArangoDB con el Shell:
-
-    $ arangosh
-
 Equivalencias AQL con SQL:
 
 | SQL  | AQL |
 | ---- |---- |
 | SELECT * FROM empresas      | FOR empresa in empresas <br>RETURN empresa |
 | DELETE FROM empresas      | FOR empresa in empresas <br>REMOVE empresa in empresas |
+| INSERT INTO locales (nombre) VALUES ('Don Hector')| INSERT {nombre: 'Don Hector'} IN locales 
+| INSERT INTO locales (nombre) VALUES ('Don Hector')<br> + retornado id generado| INSERT {nombre: 'Don Hector'} IN locales LET inserted = NEW <br> RETURN inserted._key
+
+Acceder a ArangoDB con el Shell:
+
+    $ arangosh
 
 ---
 
