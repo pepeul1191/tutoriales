@@ -18,7 +18,7 @@ Equivalencias AQL con SQL:
 | ---- |---- |
 | SELECT * FROM empresas      | FOR empresa in empresas <br>RETURN empresa |
 | DELETE FROM empresas      | FOR empresa in empresas <br>REMOVE empresa in empresas |
-| INSERT INTO locales (nombre) VALUES ('Don Hector')| INSERT {nombre: 'Don Hector'} IN locales 
+| INSERT INTO locales (nombre) VALUES ('Don Hector')git| INSERT {nombre: 'Don Hector'} IN locales 
 | INSERT INTO locales (nombre) VALUES ('Don Hector')<br> + retornado id generado| INSERT {nombre: 'Don Hector'} IN locales LET inserted = NEW <br> RETURN inserted._key
 
 Acceder a ArangoDB con el Shell:
