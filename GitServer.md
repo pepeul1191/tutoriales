@@ -52,6 +52,10 @@ Subir el archivo 'id_rsa.pub' al servidor git renombrando previamente el archivo
 Setear como origin el repositorio recien creado:
 
     $ git remote set-url origin git@<ip-servidor-git>:<ruta-directorio-repositorio-git-creado>
+    
+Clonar proyecto git:
+
+    $ git clone git@<ip-servidor-git>:<ruta-directorio-repositorio-git-creado>
 
 --- 
 
