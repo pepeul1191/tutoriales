@@ -24,6 +24,10 @@ Equivalencias AQL con SQL:
 Acceder a ArangoDB con el Shell:
 
     $ arangosh
+    
+Acceder a ArangoDB desde el cliente web:
+
+    http://localhost:8529
 
 ---
 
@@ -32,3 +36,4 @@ Fuentes:
 + https://devops.profitbricks.com/tutorials/install-and-configure-arangodb-on-ubuntu-1604/
 + https://help.github.com/articles/organizing-information-with-tables/
 + https://docs.arangodb.com/3.1/AQL/DataQueries.html
++ https://docs.arangodb.com/2.8/WebInterface/
