@@ -5,6 +5,20 @@
 Instalar esta versión ya que es compatible con lapis.
 
     $ sudo apt-get install lua5.1
+    
+#### Instalación de Lua5.2    
+    
+    $ sudo apt-get install lua5.2 liblua5.2-dev
+
+Descargar luarocks de https://keplerproject.github.io/luarocks/releases/
+
+    $ ./configure --lua-version=5.2 --versioned-rocks-dir
+    $ make build
+    $ sudo make install
+
+Para instalar un rock en luarocks5.2
+
+    $ sudo luarocks-5.2 install lua-cjson
 
 #### Instalación de Lapis
 
@@ -93,3 +107,4 @@ Añadir al bash:
 + https://www.cyberciti.biz/faq/debian-ubuntu-linux-install-libpcre3-dev/
 + http://mongoc.org/libmongoc/1.2.0/installing.html
 + https://github.com/mongodb-labs/mongorover
++ https://stackoverflow.com/questions/39760619/lua-cannot-find-installed-luarocks-on-ubuntu
