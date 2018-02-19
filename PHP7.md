@@ -18,13 +18,21 @@ Configurar el servidor Apache la habilitación de reescritura
     $ sudo nano /etc/apache2/sites-available/000-default.conf
 
 ~~~~    
-<Directory /var/www/>
-    Options Indexes FollowSymLinks MultiViews
-    # changed from None to FileInfo
-    AllowOverride FileInfo
-    Order allow,deny
-    allow from all
-</Directory>
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+	DocumentRoot /home/pepe/Documentos/php
+
+	<Directory /home/pepe/Documentos/php>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Require all granted
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 ~~~~
 
 Mostrar los errores producidos por el código PHP cambiando "display_errors = Off" a "On":
