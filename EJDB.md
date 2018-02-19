@@ -40,6 +40,15 @@ Instlación de las dependencias anteriores y la siguiente:
     $ cd ./ejdb-ruby
     $ make  
     $ make install
+    
+### Lua binding
+
+Instlación de las dependencias anteriores y la siguiente:
+
+    $ git clone https://github.com/Softmotions/ejdb-lua.git
+    $ cd ./ejdb-lua
+    $ make build
+    $ sudo luarocks install ./luaejdb-*.rock
 
 ---
 
@@ -48,3 +57,4 @@ Fuentes:
 + http://ejdb.org/doc/install/ubuntu.html
 + https://github.com/Softmotions/ejdb-ruby
 + http://ejdb.org/doc/cli.html
++ https://github.com/Softmotions/ejdb-lua
