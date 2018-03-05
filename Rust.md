@@ -1,4 +1,4 @@
-## Rust 
+## Rust  
 
 Instalación de Rust y Cargo
 
