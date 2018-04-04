@@ -28,7 +28,7 @@ Git
     
 Sintaxis Markdonw
 
-    $ git clone https://github.com/sekogan/MarkdownLight.git
+    $   git clone https://github.com/sekogan/MarkdownLight.git
     
 Configuración
 
