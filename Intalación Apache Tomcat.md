@@ -1,66 +1,87 @@
-# Instalación Apache Tomcat
+### Instalación de Tomcat
 
----
+Crear usuario de tomcat:
 
-Cambiamos a la carpeta donde tenemos descargado el archivo a instalar.
+    $ sudo groupadd tomcat
+    $ sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 
-    $ cd /home/sistemas/Documentos/programas 
+Instalar Tomcat:
 
-Descomprimimos el paquete donde se encuentra el servidor de aplicaciones.
+    $ wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.0.50/bin/apache-tomcat-8.0.50.tar.gz
+    $ sudo mkdir /opt/tomcat
+    $ sudo tar xzvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
 
-    $ sudo tar xvf apache-tomcat-8.0.24.tar.gz 
-    
-Movemos los archivos que descomprimimos a la carpeta que creamos.
-
-    $ sudo mv apache-tomcat-8.0.24 /opt/tomcat
-
-Cambiamos a la carpeta donde se encuentra lo desempaquetado.
+Actualizar permisos:
 
     $ cd /opt/tomcat
+    $ sudo chgrp -R tomcat /opt/tomcat
+    $ sudo chmod -R g+r conf
+    $ sudo chmod g+x conf
+    $ sudo chown -R tomcat webapps/ work/ temp/ logs/
 
-Editamos las variables de entro del Tomcat.
+Crear archivo systemd:
 
-    $ sudo nano ~/.bashrc 
->export JAVA_HOME=/usr/lib/jvm/default-java/
-export CATALINA_HOME=/opt/tomcat/
+El siguiente código nos dirá las alternativas de JDKs instaladas:
 
-Reiniciamos el bash para que las variables creadas puedan ser usadas en el resto de la instalación.
+    $ sudo update-java-alternatives -l
+    >> Output 
+    java-8-oracle                  1081       /usr/lib/jvm/java-8-oracle
+    $ echo $JAVA_HOME
+    >> Output
+    /usr/lib/jvm/java-8-oracle
 
-    $ . ~/.bashrc 
+Pegar el siguiente código en el archivo '/etc/systemd/system/tomcat.service', siendo el valor de 'Environment=JAVA_HOME=' el del Output de $JAVA_HOME:
 
-Le otorgamos los permisos de ejecución a la instrucción de inicio del servidor.
+```
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
 
-    $ sudo chmod +x $CATALINA_HOME/bin/startup.sh 
+[Service]
+Type=forking
 
-Le otorgamos los permisos de ejecución a la instrucción de apagado del servidor.
+Environment=JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
 
-    $ sudo chmod +x $CATALINA_HOME/bin/shutdown.sh 
-    
-Le otorgamos los permisos de ejecución a catalina.sh.
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
 
-    $ sudo chmod +x $CATALINA_HOME/bin/catalina.sh 
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
 
-Configuramos la cuenta de usuario del servidor Tomcat añadiendo lo siguiente al final del documento, pero dentro de las etiquetas tomcat-users
+[Install]
+WantedBy=multi-user.target
+```
 
-    $ sudo nano $CATALINA_HOME/conf/tomcat-users.xml 
+Luego de cerrar el archivo reiniciar el servicio:
 
-    <role rolename="manager-gui"/>
-    <role rolename="manager-script"/>
-    <role rolename="manager-jmx"/>
-    <role rolename="manager-status"/>
-    <role rolename="admin-gui"/>
-    <role rolename="admin-script"/>
-    <user username="tomcat" password="tomcat" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+    $ sudo systemctl daemon-reload
+    $ sudo systemctl start tomcat
+    $ sudo systemctl status tomcat
 
-Otrogamos permisos a los archivos del servidor Tomcat para que cuando usemos este servidor con Netbeans, sea posible leer y usar el archivo de configuración del servidor Tomcat (server.xml).
+Modificar los usuarios del servidor de aplicaciones están en el archivo '/opt/tomcat/conf/tomcat-users.xml':
 
-    $ sudo chmod -R 777 /opt/tomcat/ 
-    $ sudo $CATALINA_HOME/bin/shutdown.sh
-    $ sudo $CATALINA_HOME/bin/startup.sh Reiniciamos el servidor Tomcat para luego ya poder usarlo.
+```
+<tomcat-users . . .>
+    <user username="admin" password="password" roles="manager-gui,admin-gui"/>
+</tomcat-users>
+```
 
----
+Cambiar el puerto por default es haciendo el siguiente cambio en el archivo '/opt/tomcat/conf/server.xml':
 
-#### Fuente
+```
+<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+```
 
-+ https://www.howtoforge.com/tomcat-on-ubuntu-14.04-install
-+ https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-14-04
+--- 
+
+Fuentes
+
++ https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04
