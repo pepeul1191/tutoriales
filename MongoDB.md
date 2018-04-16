@@ -83,6 +83,27 @@ Para realizar un backup de un base de datos incluyendo los stored functions.
 Para restaurar
 
     $ mongorestore -d [your_db_name] [your_dump_dir]
+    
+#### En Windows
+
+Descargar el siguiente archivo y descomprimir:
+
+    http://downloads.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-v3.4-latest.zip?_ga=2.121440904.1066879571.1523890811-1963713294.1523890811
+    
+Crear un archivo 'mongo.config':
+  
+    port=27017
+    dbpath=C:\mongodb\data\db\
+    logpath=C:\mongodb\log\mongo.log
+    
+Iniciar servidor :
+
+    > mongod.exe --config="C:\mongodb\mongo.config"
+    Connect to localhost MongoDB server via command line
+
+Acceder al cliente:
+
+    > mongo --port 27017
 
 ---
 
@@ -92,3 +113,4 @@ Para restaurar
 + https://docs.mongodb.org/getting-started/python/client/
 + https://docs.mongodb.org/manual/reference/method/db.collection.update/
 + https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/
++ https://stackoverflow.com/questions/20796714/how-do-i-start-mongo-db-from-windows
