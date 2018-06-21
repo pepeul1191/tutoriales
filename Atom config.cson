@@ -1,0 +1,56 @@
+"*":
+  _dart:
+    _firstRun: true
+    _version: "1.0.1"
+  "atom-package-deps":
+    ignored: [
+      "linter-ui-default"
+    ]
+  "autocomplete-plus":
+    autoActivationDelay: 500
+  core:
+    disabledPackages: [
+      "atom-toolbar"
+    ]
+    followSymlinks: false
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      "scgi_temp"
+      "client_body_temp"
+      "logs"
+      "fastcgi_temp"
+      "proxy_temp"
+      "uwsgi_temp"
+      "nginx.conf.compiled"
+      "__pycache__"
+    ]
+    telemetryConsent: "no"
+  customFileTypes:
+    "source.html": [
+      "etlua"
+      "tt"
+    ]
+  editor:
+    fontFamily: "Liberation Mono"
+    fontSize: 10
+    lineHeight: 1
+    softWrap: true
+  "exception-reporting":
+    userId: "b56218d6-1149-4ac4-b6bd-617d7ecf1239"
+  "platformio-ide-terminal":
+    ansiColors:
+      zBright:
+        brightBlue: "#dedeff"
+    iconColors:
+      blue: "#ededff"
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: false
+  welcome:
+    showOnStartup: false
