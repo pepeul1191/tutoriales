@@ -1,10 +1,14 @@
 ## DBMate
 
-Instalacion:
+Instalacion sin Golang:
 
     $ curl -fsSL -o dbmate https://github.com/amacneil/dbmate/releases/download/v0.1/dbmate-linux-amd64
     $ chmod +x dbmate
     $ sudo mv dbmate /usr/local/bin
+    
+Instalacion con Golang:
+
+    $ go get -u github.com/amacneil/dbmate
     
 Comandos:
 

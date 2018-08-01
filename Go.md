@@ -1,7 +1,10 @@
 Instalación
 
     $ cd
+    # amd64
     $ wget https://dl.google.com/go/go1.9.4.linux-amd64.tar.gz
+    # arm
+    $ wget https://storage.googleapis.com/golang/go1.9.linux-armv6l.tar.gz
     $ sudo tar -xvf go1.9.4.linux-amd64.tar.gz
     $ sudo chown -R root:root ./go
     $ sudo mv go /usr/local
@@ -32,3 +35,4 @@ Fuentes:
 + http://www.hostingadvice.com/how-to/install-golang-on-ubuntu/
 + https://tecadmin.net/install-go-on-ubuntu/#
 + https://github.com/Masterminds/glide
++ https://gist.github.com/simoncos/49463a8b781d63b5fb8a3b666e566bb5
