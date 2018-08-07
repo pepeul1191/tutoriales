@@ -124,6 +124,24 @@ Editar '/etc/nginx/sites-available/default'
       return 301 https://$server_name;
     }
 
+#### Balanceador de carga
+
+Editar '/etc/nginx/sites-available/default'
+
+    upstream backend1 {
+      server 0.0.0.0:8888 weight=1;
+      server 0.0.0.0:8889 weight=2;
+    }
+
+    server {
+      listen 90;
+
+      location / {
+        proxy_pass http://backend1;
+      }
+    }
+
+Reiniciar servicio
 
 
 ---
@@ -132,3 +150,4 @@ Fuentes:
 
 + https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
 + https://stackoverflow.com/questions/41853534/install-ssl-certificate-on-nginx-ubuntu-16-04-x64-digital-ocean
++ https://www.booleanworld.com/configure-nginx-load-balancer/
