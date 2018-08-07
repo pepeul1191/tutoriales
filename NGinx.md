@@ -57,10 +57,15 @@ Crear certificado SSL
     Locality Name (eg, city) []:Lima
     Organization Name (eg, company) [Internet Widgits Pty Ltd]:Software Web Peru
     Organizational Unit Name (eg, section) []:Soporte
-    Common Name (e.g. server FQDN or YOUR name) []:SWP
+    Common Name (e.g. server FQDN or YOUR name) []:192.168.1.4
     Email Address []:jvaldiva@softweb.pe
 
     $ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+
+Crear archivo  '/etc/nginx/snippets/self-signed.conf' con las rutas de las llaves:
+
+    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key
 
 Configurar NGnix para usar SSL, editando el archivo '/etc/nginx/snippets/ssl-params.conf':
 
@@ -143,6 +148,16 @@ Editar '/etc/nginx/sites-available/default'
 
 Reiniciar servicio
 
+### Añadir cabeceras a response
+
+Editar '/etc/nginx/sites-available/default'
+
+    location / {
+      add_header Server "Werkzeug/0.14.1; Python/3.5.2; Ubuntu";
+      proxy_pass http://backend1;
+    }
+
+
 
 ---
 
@@ -151,3 +166,4 @@ Fuentes:
 + https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
 + https://stackoverflow.com/questions/41853534/install-ssl-certificate-on-nginx-ubuntu-16-04-x64-digital-ocean
 + https://www.booleanworld.com/configure-nginx-load-balancer/
++ https://stackoverflow.com/questions/11973047/adding-and-using-header-http-in-nginx
