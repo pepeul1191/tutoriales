@@ -35,7 +35,7 @@ Configuración
 Prefrence settings
 
     {
-        "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+        "color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
         "file_exclude_patterns":
         [
             "*.pyc",
@@ -59,8 +59,13 @@ Prefrence settings
             "*.sublime-workspace"
         ],
         "font_face": "Liberation Mono",
-        "font_size": 7,
+        "font_size": 9,
+        "ignored_packages":
+        [
+            "Vintage"
+        ],
         "tab_size": 2,
+        "theme": "Default.sublime-theme",
         "word_wrap": "true"
     }
 
@@ -70,7 +75,7 @@ Default.sublime-theme
         { 
             "class": "sidebar_label",
             "color": [0, 0, 0],
-            "font.size": 11
+            "font.size": 12
         }, 
         {
             "class": "sidebar_tree",
@@ -90,10 +95,12 @@ Default.sublime-theme
         },
         {
         "class": "tab_label",
-        "font.size": 10, 
+        "font.size": 12, 
         "font.face": "Ubuntu"
         }
     ]
+
+
 
 #### Fuente
 
