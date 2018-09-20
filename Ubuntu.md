@@ -47,5 +47,12 @@ En caso de usar la HPX360, usar los siguientes código para solucionar el bug qu
 En caso que querer instalar Ubuntu luego de haber instalado Windows 8.1, una vez que corra el Live Session de Ubuntu y no detecte las particiones de Windows, usar el siguiente código en la línea de comandos:
 
 En caso que no funcione el wifi
-http://askubuntu.com/questions/762198/16-04-lts-wifi-connection-issues
 
+    $ sudo apt-get install --reinstall bcmwl-kernel-source
+    
+---
+
+Fuentes:
+
++ http://askubuntu.com/questions/762198/16-04-lts-wifi-connection-issues
++ https://unix.stackexchange.com/questions/416180/ubuntu-no-wifi-adapter-found
