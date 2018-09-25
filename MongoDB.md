@@ -6,11 +6,11 @@
 
 Importar la llave pública:
 
-    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
     
 Crear lista de archivos para MongoDB:
 
-    $ echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+    $ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
     
 Actualizar la lista de paquetes:
 
@@ -23,6 +23,25 @@ Instalar MongoDB
 Arrancar el servicio de MongoDB
     
     $ sudo service mongod start
+    
+Arrancar MongoDB como servicio, editar el archivo "/etc/systemd/system/mongodb.service"
+
+```
+[Unit]
+Description=High-performance, schema-free document-oriented database
+After=network.target
+
+[Service]
+User=mongodb
+ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
+
+[Install]
+WantedBy=multi-user.target
+
+```
+Y luego ejecutar el siguiente código:
+
+    $ sudo systemctl enable mongodb
 
 #### Intalación de Librería con Python
 
@@ -114,3 +133,5 @@ Acceder al cliente:
 + https://docs.mongodb.org/manual/reference/method/db.collection.update/
 + https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/
 + https://stackoverflow.com/questions/20796714/how-do-i-start-mongo-db-from-windows
++ https://www.digitalocean.com/community/tutorials/como-instalar-mongodb-en-ubuntu-16-04-es
++ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
