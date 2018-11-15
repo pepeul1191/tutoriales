@@ -5,7 +5,7 @@
 Requistos previos:
 
 + Tener instalado Dart.
-+ Tener instaldo Android Studio.
++ Tener instaldo Androigitd Studio.
 + Tener instalado Java.
 
 Descargar SDK
@@ -18,11 +18,18 @@ Descomprimir:
 
 Aagregar al PATH:
 
-    $ export PATH=`pwd`/flutter/bin:$PATH
+    $ export PATH=$HOME/flutter/bin:$PATH
+    
+Refrescar variables:
+
+    $ . ~/.profile
     
 Para comprobar la instalación:
 
     $ flutter doctor
+    
+En Visual Studio Code instalar la extensión 'Dart-Code.dart-code'    
+
 
 ---
 
