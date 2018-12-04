@@ -19,6 +19,12 @@ Entrar por un cliente MySQL al servidor y añadir el host, con su respetivo usua
     > CREATE USER 'username'@'192.168.1.100' IDENTIFIED BY 'password';
     > GRANT ALL PRIVILEGES ON * . * TO 'username'@'192.168.1.100';
 
+En caso que esté el cliente esté en una red externa sería el siguiente código:
+
+    $ mysql -u root -p
+    > GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
+    > FLUSH PRIVILEGES;
+
 Agregar a las reglas del firewall que permita conecciones del host remoto por el puerto 3306
 
     $ sudo ufw allow 3306
@@ -38,7 +44,34 @@ Agregar a las reglas del firewall que permita conecciones del host remoto por el
 
     $ sudo ufw allow from 192.168.255.255
     $ sudo ufw allow 27017/tcp
-    
+ 
+Añadir usuario
+
+    use admin
+    db.createUser(
+       {
+           user: "root", 
+           pwd: "123", 
+           roles:["root"]
+       })
+
+Para habilitar auntenticación, entrar al archivo '/etc/mongod.conf'  y modificar:
+
+     . . .
+    security:
+      authorization: "enabled"
+     . . . 
+
+Luego reniciar el servicio:
+
+    $ sudo systemctl restart mongod
+
+Si al verificar el status del servicio hay error, reinicar el servidor.
+
+Una vez que esté activada la seguridad, para entrar al cliente por línea de comandos será ahora con el siguiente código:
+
+    $ mongo -u root -p --authenticationDatabase admin 
+
 #### Fuentes
 
 + http://www.configserverfirewall.com/ubuntu-linux/enable-mysql-remote-access-ubuntu/
@@ -46,3 +79,4 @@ Agregar a las reglas del firewall que permita conecciones del host remoto por el
 + https://www.mkyong.com/mongodb/mongodb-allow-remote-access/
 + https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server
 + https://stackoverflow.com/questions/15663001/remote-connections-mysql-ubuntu
++ https://stackoverflow.com/questions/14779104/how-to-allow-remote-connection-to-mysql

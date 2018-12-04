@@ -124,6 +124,35 @@ Acceder al cliente:
 
     > mongo --port 27017
 
+### Crear usuario
+
+Añadir usuario
+
+    use admin
+    db.createUser(
+       {
+           user: "root", 
+           pwd: "123", 
+           roles:["root"]
+       })
+
+Para habilitar auntenticación, entrar al archivo '/etc/mongod.conf'  y modificar:
+
+     . . .
+    security:
+      authorization: "enabled"
+     . . . 
+
+Luego reniciar el servicio:
+
+    $ sudo systemctl restart mongod
+
+Si al verificar el status del servicio hay error, reinicar el servidor.
+
+Una vez que esté activada la seguridad, para entrar al cliente por línea de comandos será ahora con el siguiente código:
+
+    $ mongo -u AdminSammy -p --authenticationDatabase admin
+
 ---
 
 #### Fuente : 
@@ -135,3 +164,4 @@ Acceder al cliente:
 + https://stackoverflow.com/questions/20796714/how-do-i-start-mongo-db-from-windows
 + https://www.digitalocean.com/community/tutorials/como-instalar-mongodb-en-ubuntu-16-04-es
 + https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
++ https://stackoverflow.com/questions/22638258/create-superuser-in-mongo
