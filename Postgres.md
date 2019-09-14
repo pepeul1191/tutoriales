@@ -51,7 +51,7 @@ Create table:
 ```sql
 CREATE TABLE carrers (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(25) NOT NULL
+  name VARCHAR(30) NOT NULL
 );
 
 
@@ -69,6 +69,13 @@ CREATE TABLE teachers_carrers (
 );
 ```
 
+### Backups
+
+
+    $ sudo -u postgres pg_dump local > local.bak
+    $ sudo -u postgres psql local < local.bak
+
+
 ---
 
 Fuentes:
@@ -77,3 +84,4 @@ Fuentes:
 + https://www.digitalocean.com/community/tutorials/como-instalar-y-utilizar-postgresql-en-ubuntu-16-04-es
 + https://stackoverflow.com/questions/12720967/how-to-change-postgresql-user-password
 + http://www.postgresqltutorial.com/postgresql-foreign-key/
++ https://www.linode.com/docs/databases/postgresql/how-to-back-up-your-postgresql-database/
