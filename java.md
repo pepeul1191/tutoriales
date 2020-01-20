@@ -1,6 +1,6 @@
 # Instalar Java en Ubuntu 18.04
 
-Instalar Java OpenJDK
+## Instalar Java OpenJDK
 
     $ sudo su
     $ mkdir /opt/jdk
@@ -9,8 +9,15 @@ Instalar Java OpenJDK
     $ ls /opt/jdk
     $ update-alternatives --install /usr/bin/java java /opt/jdk/jdk8u232-b09/bin/java 100
     $ update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk8u232-b09/bin/javac 100
+    $ export JAVA_HOME=/opt/jdk/jdk8u232-b09
+    $ export PATH=$PATH:$JAVA_HOME/bin
 
-Instalar Maven
+En Atom los plugins a instalar son:
+
+    + ide-java
+    + linter-processing-java
+
+## Instalar Maven
 
 En una nueva terminal:
 
@@ -33,3 +40,4 @@ Fuentes:
 
 + https://www.vultr.com/docs/how-to-install-apache-maven-on-ubuntu-16-04
 + https://www.digitalocean.com/community/tutorials/how-to-manually-install-oracle-java-on-a-debian-or-ubuntu-vps
++ https://vitux.com/how-to-setup-java_home-path-in-ubuntu/
