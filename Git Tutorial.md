@@ -146,6 +146,46 @@ Si no tenemos un destino enlazado, podemos asociar uno usando el siguiente coman
 Si el repositorio ya cuenta con un destino enlazado, podemos cambiar el destino:
 
     $ git remote set-url origin {nueva url}
+    
+#### Otros comandos
+
+Crear repositorio
+
+	$ git init
+
+Crear branch
+
+    $ git checkout -b feature1
+
+Eliminar branch
+
+    $ git branch -d feature1
+
+Listar branchs
+
+	$ git branch
+
+Usar branch
+
+    $ git checkout feature1|master
+
+Crear tag
+
+	$ git tag -a v1.4 -m "my version 1.4"
+	$ git push origin v1.0
+
+Mezclar
+
+	// ir a master
+	$ git merge branch
+
+Ver cambios
+
+	$ git diff {opcional el nombre del archivo}
+
+Ir a version
+
+	git reset --hard {123123}
 
 ---
 
