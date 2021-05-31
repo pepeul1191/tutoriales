@@ -18,6 +18,18 @@ Arrancar el servidor y pero cambiando el puerto del cliente web:
 Una vez arrancado el servidor, se puede acceder al cliente web con la siguiente url:
 
     http://localhost:8080/
+    
+### Codigos REQL
+
+Insertar
+
+```
+r.db("chat").table("users").insert({
+  user: "pepe",
+  pass: "kiki123",
+  email: "pepe.valdivia.caballero@gmail.com"
+})
+```
 
 ---
 
