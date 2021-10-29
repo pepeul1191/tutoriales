@@ -51,6 +51,8 @@ Now we tell Rubygems not to install the documentation for each package locally a
     $ source ~/.rvm/scripts/rvm
     $ rvm install 2.7.1
     $ rvm global 2.7.1
+    $ echo "source ~/.rvm/scripts/rvm"  >> ~/.bashrc
+    $ gem update --system 3.0.8 && gem update --system
 
 #### Pendientes
 
@@ -65,3 +67,5 @@ Rails con Puma -> https://www.digitalocean.com/community/tutorials/how-to-deploy
 + https://github.com/rvm/ubuntu_rvm
 + https://linuxhint.com/install_ruby_ubuntu-2/
 + https://stackoverflow.com/questions/66217436/gpg-keyserver-receive-failed-no-name
++ https://stackoverflow.com/questions/63209736/after-updating-ruby-to-2-7-1-rspec-tests-throws-error-bundlergemfileerror-for
++ https://superuser.com/questions/1318209/how-to-automatically-source-a-program
