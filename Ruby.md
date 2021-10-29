@@ -42,6 +42,16 @@ Now we tell Rubygems not to install the documentation for each package locally a
     $ sudo reboot
     $ rvm install ruby
 
+#### En Ubuntu 20.04
+
+    $ sudo apt install curl g++ gcc autoconf automake bison libc6-dev libffi-dev libgdbm-dev  libncurses5-dev libsqlite3-dev libtool libyaml-dev make pkg-config sqlite3 zlib1g-dev libgmp-dev libreadline-dev libssl-dev
+    $ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import
+    $ curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import
+    $ curl -sSL https://get.rvm.io | bash -s stable
+    $ source ~/.rvm/scripts/rvm
+    $ rvm install 2.7.1
+    $ rvm global 2.7.1
+
 #### Pendientes
 
 Servidor Puma -> http://puma.io/ <br>
@@ -53,3 +63,5 @@ Rails con Puma -> https://www.digitalocean.com/community/tutorials/how-to-deploy
 + https://gorails.com/setup/ubuntu/13.10 - Instlación
 + http://stackoverflow.com/questions/3608287/error-installing-mysql2-failed-to-build-gem-native-extension
 + https://github.com/rvm/ubuntu_rvm
++ https://linuxhint.com/install_ruby_ubuntu-2/
++ https://stackoverflow.com/questions/66217436/gpg-keyserver-receive-failed-no-name
